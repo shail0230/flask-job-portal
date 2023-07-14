@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment</title>
+</head>
+<body>
+    <h1>Assignment</h1>
+
+<form method="POST" action="/tl_assign">
+  <label for="team_leader">Select Team Leader:</label>
+  <select id="team_leader" name="team_leader">
+    {% for leader in team_leaders %}
+      <option value="{{ leader.id }}">{{ leader.first_name }} {{ leader.last_name }}</option>
+    {% endfor %}
+  </select>
+  <br><br>
+  
+  <label for="assign_company">Select Company:</label>
+  <select id="assign_company" name="assign_company">
+    <!-- Loop through companies -->
+    {% for comp in companies %}
+      <option value="{{ comp.id }}">{{ comp.name }}</option>
+    {% endfor %}
+  </select>
+  <br><br>
+  <button type="submit">Assign</button>
+</form>
+
+</body>
+</html>

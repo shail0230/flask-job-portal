@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company Details and Placement Terms</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='c4.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding-top: 50px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        form {
+            width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Company Details and Placement Terms</h1>
+    <header>
+        <div class="home-link">
+            <a href="{{ url_for('index') }}">Home</a>
+        </div>
+    </header>
+
+    <form action="/save_company_details" method="POST">
+        <label for="company_name">Company Name:</label><br>
+        {% for company in companies %}
+        <input type="radio" id="{{ company.id }}" name="company_id" value="{{ company.id }}" required>
+        <label for="{{ company.id }}">{{ company.name }}</label><br>
+        {% endfor %}
+        <br>
+
+        <input type="checkbox" id="term1" name="terms" value="term1" required>
+        <label for="term1">The Applicant should have an aggregate of 60% or more.</label><br><br>
+
+        <input type="checkbox" id="term2" name="terms" value="term2" required>
+        <label for="term2">Passing year of the applicant should be 2022, 2021, or 2020.</label><br><br>
+
+        <input type="checkbox" id="term3" name="terms" value="term3" required>
+        <label for="term3">The Applicant should have good communication skills.</label><br><br>
+
+        <input type="checkbox" id="term4" name="terms" value="term4" required>
+        <label for="term4">The Applicant should be from an IT background.</label><br><br>
+
+        <input type="checkbox" id="term5" name="terms" value="term5" required>
+        <label for="term5">The Applicant should own a vehicle for transportation.</label><br><br>
+
+        <input type="submit" value="Save Details">
+    </form>
+</body>
+</html>

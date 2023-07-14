@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='c5.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            padding-top: 50px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        form {
+            width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+  <header>
+        <div class="home-link">
+            <a href="{{ url_for('index') }}">Home</a>
+        </div>
+    </header>
+    <h1>Assignment</h1>
+
+    <form method="POST" action="/job_assign">
+        <label for="post_job">Select Vacancy:</label>
+        <select id="post_job" name="post_job">
+            <!-- Loop through post jobs -->
+            {% for job in post_jobs %}
+                <option value="{{ job.id }}">{{ job.name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="recruiter">Select Recruiter:</label>
+        <select id="recruiter" name="recruiter">
+            <!-- Loop through recruiters -->
+            {% for rec in recruiters %}
+                <option value="{{ rec.id }}">{{ rec.first_name }} {{ rec.last_name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <button type="submit">Assign</button>
+    </form>
+
+</body>
+</html>

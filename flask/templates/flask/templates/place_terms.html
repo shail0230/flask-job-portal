@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company Details and Placement Terms</title>
+</head>
+<body>
+    <h1>Company Details and Placement Terms</h1>
+    <form action="/place_terms" method="POST">
+
+        <label for="company_name">Company Name:</label><br>
+        {% for company in companies %}
+            <input type="radio" id="{{ company.id }}" name="company_id" value="{{ company.id }}">
+            <label for="{{ company.id }}">{{ company.name }}</label><br>
+        {% endfor %}
+        <br>
+
+        <input type="checkbox" name="term1" value="1">
+        <label for="term1">The Applicant should have an aggregate of 60% or more.</label><br><br>
+
+        <input type="checkbox" name="term2" value="1">
+        <label for="term2">Passing year of the applicant should be 2022, 2021, or 2020.</label><br><br>
+
+        <input type="checkbox" name="term3" value="1">
+        <label for="term3">The Applicant should have good communication skills.</label><br><br>
+
+        <input type="checkbox" name="term4" value="1">
+        <label for="term4">The Applicant should be from an IT background.</label><br><br>
+
+        <input type="checkbox" name="term5" value="1">
+        <label for="term5">The Applicant should own a vehicle for transportation.</label><br><br>
+
+        <input type="submit" value="Save Details">
+    </form>
+</body>
+</html>

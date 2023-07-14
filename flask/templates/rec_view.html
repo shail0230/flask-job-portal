@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recruiter View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding-top: 50px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .home-link {
+            margin-right: 20px;
+        }
+
+        .home-link a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-button {
+            margin-right: 20px;
+        }
+
+        .back-button a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="home-link">
+            <a href="{{ url_for('index') }}">Home</a>
+        </div>
+
+        <div class="back-button">
+            <a href="/recruiter/login" onclick="history.back()">Back</a>
+        </div>
+    </header>
+    <h1>Recruiter View</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Date of Birth</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Assign Vacancy</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recruiter in recruiters %}
+            <tr>
+                <td>{{ recruiter.id }}</td>
+                <td>{{ recruiter.first_name }}</td>
+                <td>{{ recruiter.last_name }}</td>
+                <td>{{ recruiter.address }}</td>
+                <td>{{ recruiter.phone }}</td>
+                <td>{{ recruiter.dob }}</td>
+                <td>{{ recruiter.email }}</td>
+                <td>{{ recruiter.gender }}</td>
+                <td>{{ recruiter.assign_vacancy }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Vacancy View</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Position</th>
+                <th>Location</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vacancy in vacancies %}
+            <tr>
+                <td>{{ vacancy.id }}</td>
+                <td>{{ vacancy.position }}</td>
+                <td>{{ vacancy.location }}</td>
+                <td>{{ vacancy.description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

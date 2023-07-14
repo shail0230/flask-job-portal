@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assign Vacancy to Recruiter</title>
+</head>
+<body>
+    <h1>Assignment</h1>
+
+    <form method="POST" action="/rec_assign">
+        <label for="recruiter">Select Recruiter:</label>
+        <select id="recruiter" name="recruiter">
+            {% for recruiter in recruiters %}
+                <option value="{{ recruiter.id }}">{{ recruiter.first_name }} {{ recruiter.last_name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label for="assign_vacancy">Select a Vacancy:</label>
+        <select id="assign_vacancy" name="assign_vacancy">
+            {% for vacancy in vacancies %}
+                <option value="{{ vacancy.id }}">{{ vacancy.position }}</option>
+            {% endfor %}
+        </select>
+        <br><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

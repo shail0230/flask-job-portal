@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Vacancy Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='c5.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding-top: 50px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .home-link {
+            margin-right: 20px;
+        }
+
+        .home-link a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-button {
+            margin-right: 20px;
+        }
+
+        .back-button a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        form {
+            width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="home-link">
+            <a href="{{ url_for('index') }}">Home</a>
+        </div>
+
+        <div class="back-button">
+            <a href="/teamleader/login" onclick="history.back()">Back</a>
+        </div>
+    </header>
+    <h1>Job Vacancy Form</h1>
+
+    <form action="/post_job" method="POST">
+        <label for="position">Vacancy Position:</label><br>
+        {% for vacancy in vacancies %}
+            <input type="radio" id="{{ vacancy.id }}" name="vacancy_id" value="{{ vacancy.id }}">
+            <label for="{{ vacancy.id }}">{{ vacancy.position }}</label><br>
+        {% endfor %}
+        <br>
+        <label for="num_vacancies">Number of Vacancies:</label><br>
+        <input type="number" id="num_vacancies" name="num_vacancies" min="1" required><br><br>
+
+        <label for="requirements">Requirements:</label><br>
+        <textarea id="requirements" name="requirements" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="experience">Experience (in years):</label><br>
+        <input type="number" id="experience" name="experience" min="0" required><br><br>
+
+        <label for="salary">Salary:</label><br>
+        <input type="number" id="salary" name="salary" min="0" required><br><br>
+
+        <label for="contact_email">Contact Email:</label><br>
+        <input type="email" id="contact_email" name="contact_email" required><br><br>
+
+        <input type="submit" value="Post Job">
+    </form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Team Leader View</title>
+</head>
+<body>
+    <h1>Team Leader View</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Date of Birth</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Assign Company</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for team_leader in team_leaders %}
+            <tr>
+                <td>{{ team_leader.id }}</td>
+                <td>{{ team_leader.first_name }}</td>
+                <td>{{ team_leader.last_name }}</td>
+                <td>{{ team_leader.address }}</td>
+                <td>{{ team_leader.phone }}</td>
+                <td>{{ team_leader.dob }}</td>
+                <td>{{ team_leader.email }}</td>
+                <td>{{ team_leader.gender }}</td>
+                <td>{{ team_leader.assign_company }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h1>Company View</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for company in companies %}
+            <tr>
+                <td>{{ company.id }}</td>
+                <td>{{ company.name }}</td>
+                <td>{{ company.description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Company</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='c2.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding-top: 50px;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .home-link {
+            margin-right: 20px;
+        }
+
+        .home-link a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-button {
+            margin-right: 20px;
+        }
+
+        .back-button a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        form {
+            width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="url"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="home-link">
+            <a href="{{ url_for('index') }}">Home</a>
+        </div>
+
+        <div class="back-button">
+            <a href="/admin_home" onclick="history.back()">Back</a>
+        </div>
+    </header>
+
+    <h1>Add New Company</h1>
+
+    <form action="/company/add" method="POST">
+        <label for="name">Company Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="industry">Industry:</label>
+        <input type="text" id="industry" name="industry" required>
+        <br><br>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+        <br><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea>
+        <br><br>
+        <label for="website">Website:</label>
+        <input type="url" id="website" name="website">
+        <br><br>
+        <label for="phone">Contact:</label>
+        <input type="tel" id="phone" name="phone">
+        <br><br>
+        <input type="submit" value="Add Company">
+    </form>
+
+</body>
+</html>

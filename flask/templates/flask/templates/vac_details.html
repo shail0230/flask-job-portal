@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Vacancy</title>
+</head>
+<body>
+    <h1>Add New Vacancy</h1>
+
+    <form method="POST" action="/company/vacancy/add">
+        <label for="company">Company:</label>
+        <br>
+        {% for company in companies %}
+        <input type="radio" id="{{ company.id }}" name="company" value="{{ company.id }}">
+        <label for="{{ company.id }}">{{ company.name }}</label><br>
+        {% endfor %}
+        <br>
+        <label for="position">Position:</label>
+        <input type="text" id="position" name="position" required>
+        <br><br>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+        <br><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea>
+        <br><br>
+        <button type="submit">Add Vacancy</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Application Form</title>
+  <style>
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='c8.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding-top: 50px;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .home-link {
+            margin-right: 20px;
+        }
+
+        .home-link a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-button {
+            margin-right: 20px;
+        }
+
+        .back-button a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+    form {
+      width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    input[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+        <div class="home-link">
+            <a href="{{ url_for('index') }}">Home</a>
+        </div>
+
+        <div class="back-button">
+            <a href="/recruiter/login" onclick="history.back()">Back</a>
+        </div>
+    </header>
+  <h1>Job Application Form</h1>
+
+  <form action="job_app" method="POST">
+    <label for="full_name">Full Name:</label>
+    <input type="text" id="full_name" name="full_name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required><br><br>
+
+    <label for="qualification">Qualification:</label>
+    <input type="text" id="qualification" name="qualification" required><br><br>
+
+    <label for="assign_vacancy">Select Post:</label>
+    <select id="assign_vacancy" name="assign_vacancy">
+      {% for vacancy in vacancies %}
+      <option value="{{ vacancy.id }}">{{ vacancy.position }}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+
+    <label for="experience">Experience:</label>
+    <input type="text" id="experience" name="experience" required><br><br>
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" required><br><br>
+
+    <label for="reason">Reason To Leave Last Company:</label><br>
+    <textarea id="reason" name="reason" rows="5" required></textarea>
+    <br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

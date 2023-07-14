@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recruiter View</title>
+</head>
+<body>
+
+    <h1>Vacancy View</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Position</th>
+                <th>Location</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vacancy in vacancies %}
+            <tr>
+                <td>{{ vacancy.id }}</td>
+                <td>{{ vacancy.position }}</td>
+                <td>{{ vacancy.location }}</td>
+                <td>{{ vacancy.description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+ <br><br><br>   
+    <h1>Applicants View</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Qualification</th>                
+                <th>Select Post</th>                
+                <th>Experiance</th>
+                <th>Location</th>
+                <th>Reason To Leave Last Job</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job_app in job_apps %}
+            <tr>
+                <td>{{ job_app.id }}</td>
+                <td>{{ job_app.full_name }}</td>
+                <td>{{ job_app.email }}</td>
+                <td>{{ job_app.phone }}</td>
+                <td>{{ job_app.qualification }}</td>
+                <td>{{ job_app.vacancy_id }}</td>
+                <td>{{ job_app.experience }}</td>
+                <td>{{ job_app.location }}</td>
+                <td>{{ job_app.reason_to_leave }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<br><br><br>
+
+    <h1>Status View</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Applicant</th>
+                <th>Status</th>
+                <th>Remark</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for app_up in app_ups %}
+            <tr>
+                <td>{{ app_up.id }}</td>
+                <td>{{ app_up.job_app_id }}</td>
+                <td>{{ app_up.status }}</td>
+                <td>{{ app_up.remark }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

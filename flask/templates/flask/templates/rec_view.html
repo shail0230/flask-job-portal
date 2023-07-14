@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recruiter View</title>
+</head>
+<body>
+    <h1>Recruiter View</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Date of Birth</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Assign Vacancy</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recruiter in recruiters %}
+            <tr>
+                <td>{{ recruiter.id }}</td>
+                <td>{{ recruiter.first_name }}</td>
+                <td>{{ recruiter.last_name }}</td>
+                <td>{{ recruiter.address }}</td>
+                <td>{{ recruiter.phone }}</td>
+                <td>{{ recruiter.dob }}</td>
+                <td>{{ recruiter.email }}</td>
+                <td>{{ recruiter.gender }}</td>
+                <td>{{ recruiter.assign_vacancy }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<br><br><br>
+
+
+    <h1>Vacancy View</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Position</th>
+                <th>Location</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vacancy in vacancies %}
+            <tr>
+                <td>{{ vacancy.id }}</td>
+                <td>{{ vacancy.position }}</td>
+                <td>{{ vacancy.location }}</td>
+                <td>{{ vacancy.description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

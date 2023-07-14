@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Application Form</title>
+</head>
+<body>
+  <h1>Job Application Form</h1>
+
+  <form action="job_app" method="POST">
+    <label for="full_name">Full Name:</label>
+    <input type="text" id="full_name" name="full_name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required><br><br>
+
+    <label for="qualification">Qualification:</label>
+    <input type="text" id="qualification" name="qualification" required><br><br>
+
+    <label for="assign_vacancy">Select Post:</label>
+        <select id="assign_vacancy" name="assign_vacancy">
+            {% for vacancy in vacancies %}
+                <option value="{{ vacancy.id }}">{{ vacancy.position }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+    <label for="experience">Experience:</label>
+    <input type="text" id="experience" name="experience" required><br><br>
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" required><br><br>
+
+    <label for="reason">Reason To Leave Last Company:</label><br>
+    <textarea id="text" name="reason" rows="5" required></textarea><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

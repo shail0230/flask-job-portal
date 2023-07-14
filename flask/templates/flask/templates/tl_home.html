@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Team Leader Homepage</title>
+    <style>
+        /* Define CSS styles for header, footer, and main content */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .main-content {
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .nav-menu {
+            float: left;
+        }
+
+        .nav-menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .nav-menu li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        
+    /* ... previous styles ... */
+
+    .nav-menu ul ul {
+        display: none;
+    }
+
+    .nav-menu ul li:hover > ul {
+        display: inherit;
+    }
+
+    .nav-menu ul {
+        background: #333;
+        padding: 0;
+        border-radius: 0;
+        position: relative;
+    }
+
+    .nav-menu ul li {
+        float: none;
+        width: 200px;
+        position: relative;
+    }
+
+    .nav-menu ul li a {
+        padding: 15px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .nav-menu ul li:hover {
+        background: #4b545f;
+    }
+
+    .nav-menu ul ul {
+        float: none;
+        position: absolute;
+        top: 100%;
+        padding: 0;
+    }
+
+    .nav-menu ul ul li {
+        position: relative;
+        width: auto;
+        float: none;
+    }
+
+    .nav-menu ul ul li a {
+        padding: 10px;
+        color: #fff;
+    }
+
+    .nav-menu ul ul li a:hover {
+        background: #333;
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+    <div class="container">
+        <div class="nav-menu">
+            <ul>
+                <li><a href="/place_terms">Company Details</a></li>
+                <li><a href="/teamleader/tl_view">View</a></li>
+                <li>
+                    <a href="#">Vacancy</a>
+                    <ul>
+                        <li><a href="/post_job">Post</a></li>
+                        <li><a href="/rec_assign">Assign</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Report</a></li>
+            </ul>
+        </div>
+        <div class="home-link">
+            <a href="{{ url_for('index') }}">Home</a>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container">
+        <h1>Team Leader</h1>
+
+        <div class="main-content">
+            <!-- Your main content goes here -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2023 Laqshya Infotech. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
